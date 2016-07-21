@@ -7,8 +7,11 @@ docker pull bkvarda/pokemongo-map-docker
 ```
 To run:
 ```
-docker run -P pokemongo-map-docker -a google -u "your_username" -p "your_password" -l "Some location like Seattle, WA" -st 1000 -H 0.0.0.0
+docker run -it -p 5000:5000 pokemongo-map-docker -a google -u "your_username" -p "your_password" -l "Some location like Seattle, WA" -st 1000
 ```
-By default this runs on port 5000. Just replace '-P' with -p someport:someport to bind to a different port. Change the other flags as appropriate based on the documentation [here](https://github.com/AHAAAAAAA/PokemonGo-Map/wiki/Usage). On Docker for Mac, we need to bind to 0.0.0.0 in order to reach using http://localhost:5000 (thus, the flag -H 0.0.0.0).
+By default this runs on port 5000. Just replace '-P' with -p someport:someport to bind to a different port. Change the other flags as appropriate based on the documentation [here](https://github.com/AHAAAAAAA/PokemonGo-Map/wiki/Usage).
 
-
+On Docker for Mac, you may need to add the -H 0.0.0.0 flag at the end like this:
+```
+docker run -it -p 5000:5000 pokemongo-map-docker -a google -u "your_username" -p "your_password" -l "Some location like Seattle, WA" -st 1000 -H 0.0.0.0
+```
